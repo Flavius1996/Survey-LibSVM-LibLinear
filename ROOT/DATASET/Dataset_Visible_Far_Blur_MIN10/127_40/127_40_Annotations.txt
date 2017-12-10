@@ -1,0 +1,1 @@
+﻿127_40 # Tốc độ tối đa cho phép 40 km/h # báo tốc độ tối đa cho phép các xe cơ giới chạy trừ các xe được ưu tiên theo quy định.

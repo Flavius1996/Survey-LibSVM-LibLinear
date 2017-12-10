@@ -1,0 +1,1 @@
+302a # Hướng phải đi vòng chướng ngại vật # báo các loại xe (cơ giới và thô sơ) hướng đi vòng sang phải để qua một chướng ngại vật.

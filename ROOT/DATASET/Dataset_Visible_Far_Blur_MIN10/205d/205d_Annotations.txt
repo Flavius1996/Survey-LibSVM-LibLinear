@@ -1,0 +1,1 @@
+﻿205d # Đường giao nhau cùng cấp # báo trước sắp đến nơi giao nhau cùng mức của các tuyến đường cùng cấp (không có đường nào ưu tiên)  trên cùng một mặt bằng.

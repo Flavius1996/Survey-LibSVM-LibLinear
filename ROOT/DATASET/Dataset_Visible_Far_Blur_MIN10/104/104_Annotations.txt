@@ -1,0 +1,1 @@
+104 # Cấm mô tô # báo đường cấm tất cả các loại môtô đi qua trừ các xe môtô được ưu tiên theo quy định.

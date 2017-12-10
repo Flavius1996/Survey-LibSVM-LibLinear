@@ -1,0 +1,1 @@
+131a # Cấm đỗ xe # báo nơi cấm đỗ xe trừ các xe được ưu tiên theo quy định.

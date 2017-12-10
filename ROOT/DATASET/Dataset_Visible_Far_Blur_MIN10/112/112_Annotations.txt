@@ -1,0 +1,1 @@
+112 # Cấm người đi bộ # báo đường cấm người đi bộ qua lại.

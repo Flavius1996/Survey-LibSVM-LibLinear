@@ -1,0 +1,1 @@
+﻿124a # Cấm quay xe # báo cấm các loại xe cơ giới và thô sơ quay đầu (theo kiểu chữ U) trừ các xe được ưu tiên theo quy định (Biển này không cấm rẽ trái).
