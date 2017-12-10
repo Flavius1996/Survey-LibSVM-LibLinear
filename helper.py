@@ -44,11 +44,62 @@ def create_test_set(file_indices_path, num_of_test):
 
 
 # Extract deep features
-def extract_deep_features(file_indices, last_extracted=None, is_debug=False):
+def extract_deep_features_block5_pool(file_indices, last_extracted=None, is_debug=False):
     # our features will be store in this var
     features = []
     # Load keras vgg16 pretrained model, no including FC
     model = VGG16(weights='imagenet', include_top=False)
+
+    # extracting deep features
+    if is_debug:
+        print("Extracting deep features...")
+
+    counter = 0
+    num_files = len(file_indices)
+
+    for img in file_indices:
+        if is_debug:
+            if counter == int(num_files / 2):
+                print("Reached 50% data ...")
+        counter += 1
+
+        path = img['path']
+        if last_extracted is not None:
+            if img['id'] in last_extracted:
+                features.append(last_extracted[img['id']])
+            else:
+                # read image
+                _img = image.load_img(path, target_size=(100, 100))
+                x = image.img_to_array(_img)
+                x = np.expand_dims(x, axis=0)
+                x = preprocess_input(x)
+                feature = model.predict(x)
+                flat = feature.flatten() # our feature
+                # add to list
+                features.append(flat)
+                last_extracted[img['id']] = flat
+        else:
+            # read image
+            _img = image.load_img(path, target_size=(100, 100))
+            x = image.img_to_array(_img)
+            x = np.expand_dims(x, axis=0)
+            x = preprocess_input(x)
+            feature = model.predict(x)
+            flat = feature.flatten()  # our feature
+            # add to list
+            features.append(flat)
+
+    if is_debug:
+        print("Extracted deep features !")
+
+    return features
+
+def extract_deep_features_fc2(file_indices, last_extracted=None, is_debug=False):
+    # our features will be store in this var
+    features = []
+    # Load keras vgg16 pretrained model, no including FC
+    model = VGG16(weights='imagenet', include_top=True)
+    model_extractfeatures = Model(input=model.input, output=model.get_layer('fc2').output)
 
     # extracting deep features
     if is_debug:
